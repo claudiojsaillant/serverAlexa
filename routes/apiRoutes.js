@@ -153,4 +153,20 @@ module.exports = function(app) {
       console.log(err);
     })
   });
+
+  app.post("/itemDel", function(req, res) {
+    // Create a new Item and pass the req.body to the entry
+    db.Item.deleteMany({})
+    .then(function(dbItem) {
+      // View the added result in the console
+      res.json(dbItem);
+      
+    })
+    .catch(function(err) {
+      // If an error occurred, log it
+      console.log(err);
+    })
+  });
 };
+
+
